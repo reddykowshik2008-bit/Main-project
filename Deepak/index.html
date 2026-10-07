@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Digital Experience Hub | UI Template Collection</title>
+
+    <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
+:root{--bg:#09111f;--panel:#101b2f;--panel2:#15233c;--text:#eef5ff;--muted:#9eb0c9;--line:rgba(255,255,255,.10)}
+body{min-height:100vh;color:var(--text);background:
+ radial-gradient(circle at 12% 12%,rgba(0,229,255,.16),transparent 24%),
+ radial-gradient(circle at 88% 18%,rgba(255,76,181,.18),transparent 24%),
+ radial-gradient(circle at 72% 82%,rgba(121,87,255,.17),transparent 26%),
+ linear-gradient(135deg,#07101c 0%,#0b1525 45%,#10152b 100%);overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(90px);opacity:.48}
+body:before{width:360px;height:360px;background:#00d9ff;top:130px;left:-150px}
+body:after{width:420px;height:420px;background:#ff3fa4;right:-170px;bottom:-140px}
+.orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.24;z-index:-1;pointer-events:none}
+.orb1{width:260px;height:260px;background:#7d62ff;top:42%;left:26%}
+.orb2{width:280px;height:280px;background:#00e6a7;top:14%;right:22%}
+nav{width:100%;padding:18px 6.5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);background:rgba(8,16,29,.74);backdrop-filter:blur(18px);position:sticky;top:0;z-index:100;box-shadow:0 12px 30px rgba(0,0,0,.20)}
+.logo{display:flex;align-items:center;gap:12px;font-size:21px;font-weight:900;letter-spacing:.4px;color:#f6fbff}
+.logo-icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,#00e5ff,#715dff 55%,#ff3fa4);color:#fff;box-shadow:0 10px 28px rgba(0,229,255,.18)}
+.member-badge{padding:9px 15px;border:1px solid rgba(255,255,255,.12);border-radius:30px;color:#d5e0ef;font-size:13px;background:rgba(255,255,255,.06);font-weight:800}
+.hero{max-width:1150px;margin:auto;padding:86px 25px 55px;text-align:center}
+.tag{display:inline-block;padding:9px 16px;border-radius:30px;background:rgba(0,229,255,.10);border:1px solid rgba(0,229,255,.24);color:#7feaff;font-size:13px;margin-bottom:22px;font-weight:800;box-shadow:0 10px 28px rgba(0,229,255,.08)}
+.hero h1{font-size:clamp(42px,7vw,76px);line-height:1;letter-spacing:-3px;margin-bottom:25px;color:#f4f8ff}
+.gradient-text{background:linear-gradient(90deg,#00e5ff,#8c6bff,#ff43aa,#ffc857);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{max-width:720px;margin:auto;color:#a9b8cc;font-size:17px;line-height:1.75}
+.stats{max-width:900px;margin:15px auto 65px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:0 25px}
+.stat{padding:23px;text-align:center;border-radius:24px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.03));backdrop-filter:blur(15px);box-shadow:0 14px 34px rgba(0,0,0,.18)}
+.stat strong{display:block;font-size:28px;margin-bottom:5px;background:linear-gradient(90deg,#00e5ff,#ff4fad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.stat span{color:#9aaeca;font-size:13px;font-weight:700}
+.apps-section{max-width:1150px;margin:auto;padding:0 25px 90px}.section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:25px}.section-heading h2{font-size:29px;color:#edf4ff}.section-heading p{color:#93a6bf;font-size:14px;margin-top:7px}
+.app-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.app-card{position:relative;padding:30px;min-height:285px;border-radius:28px;border:1px solid rgba(255,255,255,.12);overflow:hidden;transition:.35s ease;box-shadow:0 18px 42px rgba(0,0,0,.24);color:#fff}
+.app-card:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.13),transparent 42%,rgba(255,255,255,.05));pointer-events:none}
+.app-card:before{content:"";position:absolute;width:200px;height:200px;border-radius:50%;right:-55px;top:-72px;background:rgba(255,255,255,.17);filter:blur(34px)}
+.app-card:hover{transform:translateY(-9px) scale(1.01);box-shadow:0 28px 58px rgba(0,0,0,.30);border-color:rgba(255,255,255,.24)}
+.app-icon{width:60px;height:60px;border-radius:20px;display:grid;place-items:center;font-size:28px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.20);margin-bottom:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+.app-number{position:absolute;top:25px;right:25px;color:rgba(255,255,255,.72);font-size:12px;font-weight:800}.app-card h3{font-size:24px;margin-bottom:9px}.app-card p{color:rgba(255,255,255,.87);line-height:1.65;font-size:14px;max-width:440px}.category{display:inline-block;margin-top:17px;padding:6px 11px;border-radius:20px;background:rgba(255,255,255,.12);color:#fff;font-size:11px;font-weight:800;border:1px solid rgba(255,255,255,.16)}
+.open-btn{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:11px 18px;border:none;border-radius:14px;color:#0a1424;font-weight:900;cursor:pointer;text-decoration:none;background:#f8fbff;transition:.25s;box-shadow:0 9px 18px rgba(0,0,0,.16)}.open-btn:hover{transform:translateX(5px);box-shadow:0 13px 25px rgba(0,0,0,.24)}
+.ai{background:linear-gradient(135deg,#d61d72,#833bff 55%,#1f9bff)}.store{background:linear-gradient(135deg,#0077ff,#00b8ff 52%,#00dfb5)}.learn{background:linear-gradient(135deg,#00a86b,#11cf8a 54%,#9bdc38)}.insight{background:linear-gradient(135deg,#4c36d9,#7b42ff 48%,#ef4eab)}
+footer{text-align:center;padding:32px 20px;border-top:1px solid var(--line);color:#8296b0;font-size:13px;background:rgba(5,12,22,.55);backdrop-filter:blur(12px)}
+@media(max-width:750px){.app-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}nav{padding:17px 5%}.member-badge{display:none}.hero{padding-top:65px}.hero h1{letter-spacing:-2px}}
+</style>
+</head>
+
+<body>
+
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">◈</div>
+            Experience Hub
+        </div>
+
+        <div class="member-badge">
+            4 Interactive Projects
+        </div>
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <div class="tag">
+            🚀 Digital Experience Showcase
+        </div>
+
+        <h1>
+            Build, Browse &amp; <br>
+            <span class="gradient-text">Explore Digital Worlds</span>
+        </h1>
+
+        <p>
+            Discover four practical web experiences designed around everyday digital activities. Explore entertainment, AI conversations and online shopping through simple, engaging interfaces with smooth interactions.
+        </p>
+
+    </section>
+
+
+    <!-- Stats -->
+    <section class="stats">
+
+        <div class="stat">
+            <strong>04</strong>
+            <span>Interactive Projects</span>
+        </div>
+
+        <div class="stat">
+            <strong>04</strong>
+            <span>Experience Areas</span>
+        </div>
+
+        <div class="stat">
+            <strong>100%</strong>
+            <span>Responsive Interfaces</span>
+        </div>
+
+    </section>
+
+
+    <!-- Apps -->
+    <section class="apps-section">
+
+        <div class="section-heading">
+            <div>
+                <h2>Explore the Digital Collection</h2>
+                <p>Choose any experience below and move through its complete interface flow.</p>
+            </div>
+        </div>
+
+
+        <div class="app-grid">
+
+            <!-- Entertainment Hub -->
+            <div class="app-card ai">
+
+                <div class="app-number">01</div>
+
+                <div class="app-icon">
+                    🎟️
+                </div>
+
+                <h3>BookMyShow</h3>
+
+                <p>Plan a movie outing from discovery to confirmation with posters, cinema choices, show timings, seat selection and checkout.</p>
+
+                <span class="category">
+                    Entertainment Hub
+                </span>
+
+                <br>
+
+                <a class="open-btn" href="BookMyShow/index.html">
+                    Open App →
+                </a>
+
+            </div>
+
+
+            <!-- ChatGPT -->
+            <div class="app-card store">
+
+                <div class="app-number">02</div>
+
+                <div class="app-icon">
+                    💬
+                </div>
+
+                <h3>ChatGPT</h3>
+
+                <p>Start conversations, try sample prompts, revisit chats and explore a clean assistant-style workspace.</p>
+
+                <span class="category">
+                    Smart Conversation
+                </span>
+
+                <br>
+
+                <a class="open-btn" href="ChatGPT/index.html">
+                    Open App →
+                </a>
+
+            </div>
+
+
+            <!-- Amazon -->
+            <div class="app-card learn">
+
+                <div class="app-number">03</div>
+
+                <div class="app-icon">
+                    🛒
+                </div>
+
+                <h3>Amazon</h3>
+
+                <p>Browse a variety of products, open detailed views, manage the cart and complete a guided shopping journey.</p>
+
+                <span class="category">
+                    Shopping Experience
+                </span>
+
+                <br>
+
+                <a class="open-btn" href="Amazon/index.html">
+                    Open App →
+                </a>
+
+            </div>
+
+
+            <!-- Flipkart -->
+            <div class="app-card insight">
+
+                <div class="app-number">04</div>
+
+                <div class="app-icon">
+                    🛍️
+                </div>
+
+                <h3>Flipkart</h3>
+
+                <p>Explore a separate shopping experience with product discovery, cart management and a step-by-step checkout flow.</p>
+
+                <span class="category">
+                    Digital Marketplace
+                </span>
+
+                <br>
+
+                <a class="open-btn" href="Flipkart/index.html">
+                    Open App →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        © 2026 Experience Hub • Interactive UI Collection
+    </footer>
+
+</body>
+
+</html>
