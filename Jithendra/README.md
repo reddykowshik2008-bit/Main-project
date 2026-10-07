@@ -28,4 +28,5 @@ For CropDoctor's camera (needs https or localhost), run a local server instead:
 - The apps are unchanged from your originals and live under `apps/`.
 - Their saved data uses separate localStorage keys (`fv_*`, `cd_*`, `agrismart`), so they don't overwrite each other.
 - AgriSmart's charts and the Google Fonts need an internet connection.
-- To add a fifth app, copy its folder into `apps/` and add one entry to the `APPS` list in `index.html`.
+- To add a fifth app, copy its folder into `apps/` and add one entry to the `APPS` list in `index.html`. 
+Updated by Jithendra - Team Collaboration
