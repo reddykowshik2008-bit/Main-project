@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FarmHub – All Your Farm Apps in One Place</title>
+<style>
+:root{
+  --bg:#08111a; --ink:#f4f8fb; --mut:#9fb2c4; --line:rgba(255,255,255,.12);
+  --bar:52px;
+}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid #7dd3fc;outline-offset:2px}
+
+/* ---------- HOME ---------- */
+#home{min-height:100%;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.glow{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.g1{width:380px;height:380px;background:#0e9aa7;left:-140px;top:-60px;opacity:.55}
+.g2{width:320px;height:320px;background:#4ade80;right:-80px;top:120px;opacity:.28}
+.g3{width:340px;height:340px;background:#6d4ad8;left:22%;bottom:-120px;opacity:.28}
+.g4{width:300px;height:300px;background:#a43f7a;right:-100px;bottom:-60px;opacity:.3}
+.wrap{position:relative;z-index:1;width:min(920px,100% - 32px);margin:0 auto;padding:clamp(24px,5vw,44px) 0 24px;flex:1}
+.badge{display:block;width:max-content;margin:0 auto 16px;padding:6px 14px;border-radius:99px;font-size:12px;font-weight:700;color:#7ef0e0;background:rgba(20,184,166,.14);border:1px solid rgba(45,212,191,.4)}
+h1{text-align:center;font-size:clamp(34px,6.5vw,60px);line-height:1.08;letter-spacing:-.02em;font-weight:800}
+.grad{background:linear-gradient(90deg,#22d3ee,#a855f7 55%,#fb7185 80%,#fbbf24);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{max-width:560px;margin:16px auto 0;text-align:center;color:var(--mut);font-size:clamp(14px,2vw,16px);line-height:1.6}
+.stats{display:flex;gap:12px;justify-content:center;margin:28px 0 36px;flex-wrap:wrap}
+.stat{min-width:112px;padding:14px 18px;text-align:center;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);backdrop-filter:blur(8px)}
+.stat b{display:block;font-size:22px;color:#8fb4f0}
+.stat span{font-size:11px;font-weight:700;color:var(--mut)}
+.sec h2{font-size:20px}
+.sec p{color:var(--mut);font-size:13px;margin:4px 0 16px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.card{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:22px;min-height:200px;border-radius:20px;color:#fff;text-align:left;border:1px solid rgba(255,255,255,.25);box-shadow:0 14px 34px rgba(0,0,0,.35);transition:transform .2s,box-shadow .2s;overflow:hidden}
+.card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(0,0,0,.5)}
+.card .no{position:absolute;right:18px;top:14px;font-size:11px;font-weight:800;opacity:.85}
+.ico{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;font-size:24px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3)}
+.card h3{font-size:18px;margin-top:4px}
+.card p{font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.92);margin:0}
+.tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35)}
+.open{margin-top:auto;padding:9px 16px;border:0;border-radius:10px;background:#fff;color:#111827;font-weight:800;font-size:13.5px}
+.c1{background:linear-gradient(135deg,#16a34a,#84cc16 95%)}
+.c2{background:linear-gradient(135deg,#0ea5e9,#14b8a6 60%,#34d399)}
+.c3{background:linear-gradient(135deg,#f59e0b,#ef4444 90%)}
+.c4{background:linear-gradient(135deg,#6366f1,#a855f7 55%,#ec4899)}
+footer{position:relative;z-index:1;text-align:center;padding:18px;font-size:11.5px;color:#7b8ea1;border-top:1px solid var(--line);background:rgba(5,10,16,.7)}
+
+/* ---------- APP VIEWER ---------- */
+#viewer{display:none;position:fixed;inset:0;flex-direction:column;background:#0b1520;z-index:10}
+body.in-app #viewer{display:flex}
+body.in-app #home{display:none}
+.bar{height:calc(var(--bar) + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 12px 0;display:flex;align-items:center;gap:10px;background:#0d1a27;border-bottom:1px solid var(--line);flex:none}
+.back{display:flex;align-items:center;gap:6px;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:#fff;font-weight:700;font-size:13.5px;white-space:nowrap}
+.back:hover{background:rgba(255,255,255,.15)}
+.title{font-weight:800;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.switch{display:flex;gap:6px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.switch::-webkit-scrollbar{display:none}
+.chip{display:flex;align-items:center;gap:6px;padding:7px 11px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--mut);font-weight:700;font-size:12.5px;white-space:nowrap}
+.chip:hover{color:#fff;background:rgba(255,255,255,.08)}
+.chip.on{color:#fff;background:linear-gradient(135deg,#6366f1,#a855f7)}
+.ext{padding:8px 10px;border-radius:10px;border:1px solid var(--line);color:var(--mut);font-size:13px;white-space:nowrap}
+.ext:hover{color:#fff}
+@media(max-width:700px){.title,.chip span,.ext{display:none}.chip{padding:8px 10px;font-size:16px}}
+.frames{flex:1;position:relative;background:#fff}
+iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:none;background:#fff}
+iframe.on{display:block}
+.loading{position:absolute;inset:0;display:grid;place-items:center;color:#5b6b7c;font-size:14px;background:#f4f7f5;z-index:0}
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<div id="home">
+  <div class="glow g1"></div><div class="glow g2"></div><div class="glow g3"></div><div class="glow g4"></div>
+  <div class="wrap">
+    <span class="badge">🌾 Farm Experience Hub</span>
+    <h1>Manage, Share &amp;<br><span class="grad">Grow Smarter Farms</span></h1>
+    <p class="lead">Four practical farming apps in one place. Care for livestock, rent machinery, diagnose crop diseases and run your whole farm, all from a single launcher.</p>
+
+    <div class="stats">
+      <div class="stat"><b>04</b><span>Farm Apps</span></div>
+      <div class="stat"><b>04</b><span>Farming Areas</span></div>
+      <div class="stat"><b>100%</b><span>Works in Browser</span></div>
+    </div>
+
+    <section class="sec">
+      <h2>Explore the Farm Collection</h2>
+      <p>Choose any app below and use it right inside FarmHub.</p>
+      <div class="grid" id="grid"></div>
+    </section>
+  </div>
+  <footer>© 2026 FarmHub • Interactive Farm App Collection</footer>
+</div>
+
+<!-- APP VIEWER -->
+<div id="viewer" aria-live="polite">
+  <div class="bar">
+    <a class="back" href="#/" id="backBtn" aria-label="Back to FarmHub">← FarmHub</a>
+    <div class="title" id="vtitle"></div>
+    <div class="switch" id="switch" role="tablist" aria-label="Switch app"></div>
+    <a class="ext" id="ext" target="_blank" rel="noopener" title="Open in a new tab">↗ New tab</a>
+  </div>
+  <div class="frames" id="frames"><div class="loading">Loading…</div></div>
+</div>
+
+<script>
+const APPS = [
+  {id:'farmvet', name:'FarmVet', icon:'🐄', cls:'c1', tag:'Livestock Health',
+   desc:'Track animal health, vaccinations, medicines, vet appointments, breeding and nutrition for your whole herd.',
+   src:'apps/farmvet/index.html'},
+  {id:'farmlink', name:'FarmLink', icon:'🚜', cls:'c2', tag:'Resource Sharing',
+   desc:'Find and rent tractors, harvesters and tools nearby. List your own machinery, manage bookings and chat.',
+   src:'apps/farmlink/index.html'},
+  {id:'cropdoctor-ai', name:'CropDoctor AI', icon:'🍃', cls:'c3', tag:'Crop Diagnosis',
+   desc:'Scan a leaf photo to detect crop diseases, see treatment advice and keep a history of your scans.',
+   src:'apps/cropdoctor-ai/index.html'},
+  {id:'agrismart', name:'AgriSmart', icon:'🌱', cls:'c4', tag:'Farm Management',
+   desc:'Run the farm day to day: crops, fields, tasks, finances, livestock, inventory and weather in one dashboard.',
+   src:'apps/agrismart/index.html'}
+];
+
+const $ = s => document.querySelector(s);
+const grid = $('#grid'), sw = $('#switch'), frames = $('#frames');
+
+// Home cards
+grid.innerHTML = APPS.map((a,i)=>`
+  <a class="card ${a.cls}" href="#/${a.id}" aria-label="Open ${a.name}">
+    <span class="no">0${i+1}</span>
+    <div class="ico">${a.icon}</div>
+    <h3>${a.name}</h3>
+    <p>${a.desc}</p>
+    <span class="tag">${a.tag}</span>
+    <span class="open">Open App →</span>
+  </a>`).join('');
+
+// Quick-switch chips
+sw.innerHTML = APPS.map(a=>`<a class="chip" data-id="${a.id}" href="#/${a.id}" title="${a.name}">${a.icon}<span>${a.name}</span></a>`).join('');
+
+// Iframes are created on first open and kept alive, so each app keeps its state when you switch.
+const loaded = {};
+function show(id){
+  const app = APPS.find(a=>a.id===id);
+  if(!app){ document.body.classList.remove('in-app'); document.title='FarmHub – All Your Farm Apps in One Place'; return; }
+  document.body.classList.add('in-app');
+  if(!loaded[id]){
+    const f = document.createElement('iframe');
+    f.title = app.name; f.src = app.src;
+    f.allow = 'camera; microphone; geolocation; clipboard-write; fullscreen';
+    frames.appendChild(f); loaded[id] = f;
+  }
+  Object.entries(loaded).forEach(([k,f])=>f.classList.toggle('on', k===id));
+  sw.querySelectorAll('.chip').forEach(c=>{
+    const on = c.dataset.id===id; c.classList.toggle('on',on);
+    on ? c.setAttribute('aria-current','page') : c.removeAttribute('aria-current');
+  });
+  $('#vtitle').textContent = app.icon+' '+app.name;
+  $('#ext').href = app.src;
+  document.title = app.name+' • FarmHub';
+}
+function route(){ show((location.hash.replace(/^#\/?/,'')||'').split('/')[0]); }
+addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>

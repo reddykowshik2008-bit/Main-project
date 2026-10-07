@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CropDoctor AI – Detect. Diagnose. Protect.</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<div class="app">
+<aside id="side" aria-label="Main navigation">
+ <div class="logo"><i aria-hidden="true">✚</i>CropDoctor AI</div><div class="tag">Detect. Diagnose. Protect.</div>
+ <div id="nav"></div>
+ <div style="margin-top:auto;font-size:.8rem;color:var(--mut)">Demo build · results are simulated</div>
+</aside>
+<div class="main">
+ <header class="top">
+  <button class="ib" id="hb" data-a="menu" aria-label="Open menu">☰</button>
+  <div class="sw"><input id="gs" type="search" placeholder="Search diseases, crops, scans…" aria-label="Global search" autocomplete="off"><div class="dd" id="sr" role="listbox"></div></div>
+  <button class="btn sm o" data-a="theme" id="tb" aria-label="Toggle theme"></button>
+  <div style="position:relative"><button class="ib" data-a="bell" aria-label="Notifications">🔔<span class="badge" id="bd"></span></button><div class="dd" id="nd"></div></div>
+ </header>
+ <main id="view" tabindex="-1"></main>
+</div></div>
+<nav class="bn" id="bn" aria-label="Quick navigation"></nav>
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="report"></div>
+<input type="file" id="fi" accept=".jpg,.jpeg,.png,image/jpeg,image/png" hidden>
+<script src="js/app.js"></script></body></html>

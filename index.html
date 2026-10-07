@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI Template Collection Dashboard</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
+  color:#fff;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255,77,166,.28), transparent 28%),
+    radial-gradient(circle at 90% 10%, rgba(0,229,255,.24), transparent 30%),
+    radial-gradient(circle at 70% 90%, rgba(124,92,255,.30), transparent 32%),
+    linear-gradient(135deg,#090b1f,#111536 48%,#090b1f);
+}
+.container{width:min(1200px,92%);margin:auto}
+.hero{text-align:center;padding:55px 20px 35px}
+.badge{
+  display:inline-block;padding:8px 16px;border-radius:30px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  font-size:13px;letter-spacing:1px;margin-bottom:18px
+}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.05;margin-bottom:14px}
+.gradient{background:linear-gradient(90deg,#00e5ff,#8b5cf6,#ff4da6,#ffd166);
+-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:#cbd3ef;max-width:720px;margin:auto;font-size:17px;line-height:1.6}
+.stats{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:28px 0}
+.stat{padding:12px 18px;border-radius:14px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13)}
+.stat b{font-size:22px}.stat span{display:block;color:#b8c0dd;font-size:12px;margin-top:3px}
+.section{margin:35px 0 45px}
+.section-title{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.section-title h2{font-size:25px}.section-title span{color:#aab4d6;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:18px}
+.card{
+  position:relative;overflow:hidden;min-height:230px;padding:23px;border-radius:22px;
+  background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.055));
+  border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(12px);
+  box-shadow:0 16px 40px rgba(0,0,0,.22);
+  transition:.3s ease;
+}
+.card:hover{transform:translateY(-8px) scale(1.015);border-color:rgba(255,255,255,.35);box-shadow:0 22px 55px rgba(0,0,0,.35)}
+.icon{
+  width:58px;height:58px;border-radius:17px;display:grid;place-items:center;
+  font-size:28px;margin-bottom:18px;background:var(--c);box-shadow:0 10px 25px color-mix(in srgb,var(--c),transparent 55%);
+}
+.card h3{font-size:21px;margin-bottom:7px}.card p{font-size:13px;color:#c0c8e4;line-height:1.5;min-height:40px}
+.open{
+  display:inline-block;margin-top:18px;padding:10px 16px;border-radius:11px;
+  color:#fff;text-decoration:none;font-weight:bold;font-size:13px;background:var(--c);
+  transition:.2s
+}
+.open:hover{filter:brightness(1.15)}
+.footer{text-align:center;padding:15px 20px 45px;color:#8993b8;font-size:13px}
+@media(max-width:600px){.hero{padding-top:35px}.card{min-height:210px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="hero">
+    <div class="badge">UI TEMPLATE COLLECTION • MAIN DASHBOARD</div>
+    <h1>All Apps <span class="gradient">Dashboard</span></h1>
+    <p>One colorful home page for all UI projects in this collection. Choose an app below to open its original project.</p>
+    <div class="stats">
+      <div class="stat"><b>12</b><span>Main Apps</span></div>
+      <div class="stat"><b>3</b><span>Collections</span></div>
+      <div class="stat"><b>100%</b><span>Local Projects</span></div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-title"><h2>🌾 Farm & Agriculture</h2><span>Jithendra Apps</span></div>
+    <div class="grid">
+      <div class="card" style="--c:#22c55e"><div class="icon">🩺</div><h3>CropDoctor AI</h3><p>Crop health and agriculture assistance UI.</p><a class="open" href="Jithendra/apps/cropdoctor-ai/index.html">Open App →</a></div>
+      <div class="card" style="--c:#06b6d4"><div class="icon">🌱</div><h3>AgriSmart</h3><p>Smart agriculture dashboard and tools.</p><a class="open" href="Jithendra/apps/agrismart/index.html">Open App →</a></div>
+      <div class="card" style="--c:#f59e0b"><div class="icon">🔗</div><h3>FarmLink</h3><p>Farmer-focused platform and interface.</p><a class="open" href="Jithendra/apps/farmlink/index.html">Open App →</a></div>
+      <div class="card" style="--c:#ef4444"><div class="icon">🐄</div><h3>FarmVet</h3><p>Animal health, medicines, reports and farm management.</p><a class="open" href="Jithendra/apps/farmvet/index.html">Open App →</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><h2>🚀 Kowshik App Collection</h2><span>4 UI Projects</span></div>
+    <div class="grid">
+      <div class="card" style="--c:#ff5a36"><div class="icon">🍔</div><h3>Swiggy</h3><p>Food delivery browsing and ordering UI.</p><a class="open" href="Kowshik_4_App_UI/Kowshik_4_App_UI/Swiggy/index.html">Open App →</a></div>
+      <div class="card" style="--c:#22c55e"><div class="icon">🎵</div><h3>Spotify</h3><p>Music discovery and streaming-style UI.</p><a class="open" href="Kowshik_4_App_UI/Kowshik_4_App_UI/Spotify/index.html">Open App →</a></div>
+      <div class="card" style="--c:#111827"><div class="icon">🚕</div><h3>Uber</h3><p>Ride booking and mobility interface.</p><a class="open" href="Kowshik_4_App_UI/Kowshik_4_App_UI/Uber/index.html">Open App →</a></div>
+      <div class="card" style="--c:#84cc16"><div class="icon">🛒</div><h3>Blinkit</h3><p>Quick-commerce shopping interface.</p><a class="open" href="Kowshik_4_App_UI/Kowshik_4_App_UI/Blinkit/index.html">Open App →</a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><h2>💻 Digital UI Collection</h2><span>4 UI Projects</span></div>
+    <div class="grid">
+      <div class="card" style="--c:#ff9900"><div class="icon">📦</div><h3>Amazon</h3><p>E-commerce product, cart, payment and confirmation UI.</p><a class="open" href="digital_ui_collection_ui_template_all_new_matter/Amazon/index.html">Open App →</a></div>
+      <div class="card" style="--c:#2874f0"><div class="icon">🛍️</div><h3>Flipkart</h3><p>Shopping, product, address, cart and payment UI.</p><a class="open" href="digital_ui_collection_ui_template_all_new_matter/Flipkart/index.html">Open App →</a></div>
+      <div class="card" style="--c:#7c5cff"><div class="icon">🤖</div><h3>ChatGPT</h3><p>Chat interface with history and settings screens.</p><a class="open" href="digital_ui_collection_ui_template_all_new_matter/ChatGPT/index.html">Open App →</a></div>
+      <div class="card" style="--c:#e91e63"><div class="icon">🎬</div><h3>BookMyShow</h3><p>Movie details, language, showtimes, seats and payment UI.</p><a class="open" href="digital_ui_collection_ui_template_all_new_matter/BookMyShow/index.html">Open App →</a></div>
+    </div>
+  </section>
+
+  <div class="footer">UI Template Collection • Main Colorful Dashboard</div>
+</div>
+</body>
+</html>

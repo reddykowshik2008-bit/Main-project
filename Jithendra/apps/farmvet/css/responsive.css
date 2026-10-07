@@ -1,0 +1,14 @@
+@media(max-width:1024px){.side{transform:translateX(-100%)}.side.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,.4)}.wrap{margin-left:0}}
+@media(min-width:1025px){#mn{display:none}}
+@media(max-width:700px){
+ main{padding:14px 12px 90px}h1{font-size:1.3rem}.prof span{display:none}header{padding:8px 10px}
+ .bot{display:flex;position:fixed;bottom:0;left:0;right:0;background:var(--card);box-shadow:0 -2px 12px rgba(0,0,0,.12);z-index:25;padding-bottom:env(safe-area-inset-bottom)}
+ .bot a,.bot button{flex:1;text-align:center;padding:10px 2px;font-size:.7rem;color:var(--tx);border:0;background:none;min-height:56px}.bot b{display:block;font-size:1.3rem;font-weight:400}
+ .btn{padding:14px 18px}.bar select,.bar .btn{flex:1 1 45%}
+ .tbl thead{display:none}.tbl,.tbl tbody,.tbl tr,.tbl td{display:block}.tbl tr{border-bottom:8px solid var(--bg);padding:6px 0}
+ .tbl td{border:0;display:flex;justify-content:space-between;gap:10px;padding:6px 12px;text-align:right}.tbl td::before{content:attr(data-label);font-weight:700;color:var(--mu);text-align:left}
+ .tbl td.act{flex-wrap:wrap;justify-content:flex-end}.tbl td.act::before{content:""}
+ .hero{grid-template-columns:1fr;padding:20px}.hero h1{font-size:2rem}.art{font-size:5rem}.grid2{grid-template-columns:1fr}
+ #toasts{left:12px;right:12px}
+}
+@media(max-width:360px){.grid{grid-template-columns:1fr 1fr}.stat .n{font-size:1.5rem}}
